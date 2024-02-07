@@ -80,7 +80,7 @@ class ModelArguments:
         default="main",
         metadata={"help": "The specific model version to use (can be a branch name, tag name or commit id)."},
     )
-    token: str = field(
+    token: Optional[str] = field(
         default=None,
         metadata={
             "help": (
@@ -90,7 +90,7 @@ class ModelArguments:
         },
     )
     use_auth_token: bool = field(
-        default=None,
+        default=False,
         metadata={
             "help": "The `use_auth_token` argument is deprecated and will be removed in v4.34. Please use `token` instead."
         },
@@ -148,7 +148,7 @@ class DataTrainingArguments:
         default=None,
         metadata={"help": "The number of processes to use for the preprocessing."},
     )
-    max_seq_length: int = field(
+    max_seq_length: Optional[int] = field(
         default=None,
         metadata={
             "help": (
